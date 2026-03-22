@@ -17,17 +17,9 @@
 
   const updateHeaderHeightVar = () => {
     if (!header) return;
-    const totalHeight = header.getBoundingClientRect().height;
-    const togglerVisible = navbarToggler
-      ? window.getComputedStyle(navbarToggler).display !== 'none'
-      : false;
-    const collapseVisible = navbarCollapse
-      ? window.getComputedStyle(navbarCollapse).display !== 'none' && navbarCollapse.getBoundingClientRect().height > 1
-      : false;
-    const collapseHeight = togglerVisible && collapseVisible
-      ? navbarCollapse.getBoundingClientRect().height
-      : 0;
-    const baseHeight = Math.max(64, Math.ceil(totalHeight - collapseHeight));
+    const navbar = header.querySelector('.navbar');
+    const baseMeasure = navbar ? navbar.getBoundingClientRect().height : header.getBoundingClientRect().height;
+    const baseHeight = Math.max(64, Math.ceil(baseMeasure));
     document.documentElement.style.setProperty('--header-height', `${baseHeight}px`);
   };
 
