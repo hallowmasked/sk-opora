@@ -31,10 +31,25 @@
 
   const updateHeaderHeightVar = () => {
     if (!header) return;
-    const navbar = header.querySelector('.navbar');
-    const baseMeasure = navbar ? navbar.getBoundingClientRect().height : header.getBoundingClientRect().height;
-    const baseHeight = Math.max(64, Math.ceil(baseMeasure));
-    document.documentElement.style.setProperty('--header-height', `${baseHeight}px`);
+
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1200;
+    let nextHeight = 88;
+
+    if (viewportWidth <= 575.98) {
+      nextHeight = 68;
+    } else if (viewportWidth <= 767.98) {
+      nextHeight = 72;
+    } else if (viewportWidth <= 991.98) {
+      nextHeight = 78;
+    } else {
+      const topRow = header.querySelector('.navbar > .container');
+      const measuredHeight = topRow
+        ? topRow.getBoundingClientRect().height
+        : header.getBoundingClientRect().height;
+      nextHeight = Math.min(104, Math.max(88, Math.ceil(measuredHeight)));
+    }
+
+    document.documentElement.style.setProperty('--header-height', `${nextHeight}px`);
   };
 
   updateHeaderHeightVar();

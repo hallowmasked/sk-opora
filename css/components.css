@@ -1940,7 +1940,7 @@
 }
 
 .header .navbar {
-  min-height: var(--header-height);
+  min-height: clamp(64px, var(--header-height), 104px);
   padding-top: 0.35rem;
   padding-bottom: 0.35rem;
 }
