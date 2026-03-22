@@ -329,43 +329,36 @@
   // Portfolio Filter
   // ========================================
   const filterGroups = document.querySelectorAll('[role="group"]');
+  const filterHideTimers = new WeakMap();
+
+  const clearFilterHideTimer = (item) => {
+    const timerId = filterHideTimers.get(item);
+    if (timerId) {
+      clearTimeout(timerId);
+      filterHideTimers.delete(item);
+    }
+  };
 
   const animateFilterItem = (item, shouldShow) => {
-    item.getAnimations?.().forEach((animation) => animation.cancel());
+    clearFilterHideTimer(item);
+    item.classList.add('filter-anim-item');
 
     if (shouldShow) {
       item.style.display = '';
-      item.style.opacity = '1';
-      item.animate(
-        [
-          { opacity: 0.01 },
-          { opacity: 1 }
-        ],
-        {
-          duration: 180,
-          easing: 'ease-out',
-          fill: 'both'
-        }
-      );
+      item.removeAttribute('aria-hidden');
+      void item.offsetWidth;
+      item.classList.remove('is-filter-hidden');
       return;
     }
 
-    const animation = item.animate(
-      [
-        { opacity: 1 },
-        { opacity: 0 }
-      ],
-      {
-        duration: 150,
-        easing: 'ease',
-        fill: 'both'
-      }
-    );
+    item.classList.add('is-filter-hidden');
+    item.setAttribute('aria-hidden', 'true');
 
-    animation.onfinish = () => {
+    const timerId = window.setTimeout(() => {
       item.style.display = 'none';
-      item.style.opacity = '0';
-    };
+    }, 220);
+
+    filterHideTimers.set(item, timerId);
   };
 
   filterGroups.forEach((group) => {
@@ -378,6 +371,13 @@
       : document.querySelectorAll('#portfolioGrid .portfolio-item');
 
     if (!items.length) return;
+
+    items.forEach((item) => {
+      item.classList.add('filter-anim-item');
+      item.classList.remove('is-filter-hidden');
+      item.style.display = '';
+      item.removeAttribute('aria-hidden');
+    });
 
     groupFilters.forEach((filterBtn) => {
       filterBtn.addEventListener('click', () => {
@@ -528,39 +528,56 @@
       }
 
       // Close floating contacts popup
-      const floatingPopup = document.querySelector('.contact-floating-popup');
-      if (floatingPopup && floatingPopup.classList.contains('is-visible')) {
-        floatingPopup.classList.remove('is-visible');
-        if (floatingMainBtn) {
-          floatingMainBtn.setAttribute('aria-expanded', 'false');
-        }
-      }
+      closeAllFloatingPopups();
     }
   });
 
   // ========================================
   // Floating Contacts Button
   // ========================================
-  const floatingWidgets = document.querySelectorAll('.contact-floating');
+  const closeAllFloatingPopups = () => {
+    document.querySelectorAll('.contact-floating').forEach((widget) => {
+      const floatingMainBtn = widget.querySelector('.contact-floating-main');
+      const floatingPopup = widget.querySelector('.contact-floating-popup');
+      if (!floatingMainBtn || !floatingPopup) return;
 
-  floatingWidgets.forEach((widget) => {
-    const floatingMainBtn = widget.querySelector('.contact-floating-main');
-    const floatingPopup = widget.querySelector('.contact-floating-popup');
-    if (!floatingMainBtn || !floatingPopup) return;
-
-    floatingMainBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isVisible = floatingPopup.classList.toggle('is-visible');
-      floatingMainBtn.setAttribute('aria-expanded', String(isVisible));
+      floatingPopup.classList.remove('is-visible');
+      floatingMainBtn.setAttribute('aria-expanded', 'false');
     });
+  };
 
-    document.addEventListener('click', (e) => {
-      if (!widget.contains(e.target)) {
-        floatingPopup.classList.remove('is-visible');
-        floatingMainBtn.setAttribute('aria-expanded', 'false');
-      }
+  const initFloatingContacts = () => {
+    const floatingWidgets = document.querySelectorAll('.contact-floating');
+    if (!floatingWidgets.length) return;
+
+    floatingWidgets.forEach((widget) => {
+      if (widget.dataset.floatingInit === 'true') return;
+      widget.dataset.floatingInit = 'true';
+
+      const floatingMainBtn = widget.querySelector('.contact-floating-main');
+      const floatingPopup = widget.querySelector('.contact-floating-popup');
+      if (!floatingMainBtn || !floatingPopup) return;
+
+      floatingMainBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isVisible = floatingPopup.classList.toggle('is-visible');
+        floatingMainBtn.setAttribute('aria-expanded', String(isVisible));
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!widget.contains(event.target)) {
+          floatingPopup.classList.remove('is-visible');
+          floatingMainBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
-  });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFloatingContacts, { once: true });
+  } else {
+    initFloatingContacts();
+  }
 
   // ========================================
   // Cookie Banner

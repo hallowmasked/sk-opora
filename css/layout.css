@@ -641,6 +641,15 @@ body.page-privacy main .container {
     --header-height: 78px;
   }
 
+  body.page-home main {
+    padding-top: var(--header-height) !important;
+  }
+
+  body.page-home .hero {
+    margin-top: 0;
+    padding-top: 1.25rem;
+  }
+
   body.page-projects main,
   body.page-project-detail main,
   body.page-portfolio main,
@@ -655,7 +664,7 @@ body.page-privacy main .container {
   }
 
   body.page-home .hero {
-    padding-top: calc(var(--header-height) + 2.25rem);
+    padding-top: 1rem;
   }
 
   .section {
@@ -678,7 +687,7 @@ body.page-privacy main .container {
   }
 
   body.page-home .hero {
-    padding-top: calc(var(--header-height) + 2.4rem);
+    padding-top: 0.85rem;
   }
 
   .projects-grid {

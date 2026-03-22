@@ -4,19 +4,19 @@
 
 /* CSS Variables */
 :root {
-    /* Updated color palette: brutal blue theme */
+    /* Updated color palette: clean white + cool accent */
     --color-primary: #0049b7;
     --color-primary-dark: #002f6c;
     --color-primary-light: #007cc7;
-    --color-secondary: #e8f9fd;
+    --color-secondary: #edf4ff;
     --color-success: #2f8f63;
     --color-dark: #17212b;
     --color-dark-light: #334155;
-    --color-light: #f7f3ed;
-    --color-surface: #fffdfa;
-    --color-surface-alt: #f3eee7;
+    --color-light: #f6f9ff;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f3f7ff;
     --color-muted: #667085;
-    --color-border: #e5ddd1;
+    --color-border: #d8e1ef;
     --shadow-sm: 0 6px 18px rgb(23 33 43 / 0.05);
 
     /* Override Bootstrap primary variables to align with brutal blue palette */
@@ -67,8 +67,9 @@ body {
     max-width: 100vw;
     padding-top: 0;
     background:
-        radial-gradient(circle at top left, rgba(0, 73, 183, 0.08), transparent 28%),
-        linear-gradient(180deg, #ffffff 0%, #f4faff 100%);
+        radial-gradient(circle at top left, rgba(0, 73, 183, 0.06), transparent 30%),
+        radial-gradient(circle at right 12%, rgba(0, 124, 199, 0.05), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
 }
 
 main {
@@ -198,6 +199,16 @@ dd {
 
 .btn:active {
     transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.form-control:focus-visible,
+.nav-link:focus-visible,
+.accordion-button:focus-visible {
+    outline: 2px solid rgba(0, 73, 183, 0.28);
+    outline-offset: 2px;
 }
 
 .btn-primary {
