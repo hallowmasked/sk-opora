@@ -1,10 +1,8 @@
-/* ========================================
-   BASE CSS - Переменные, сброс, типографика
-   ======================================== */
+﻿
 
-/* CSS Variables */
+/* Переменные */
 :root {
-    /* Updated color palette: clean white + cool accent */
+    
     --color-primary: #0049b7;
     --color-primary-dark: #002f6c;
     --color-primary-light: #007cc7;
@@ -19,7 +17,7 @@
     --color-border: #d8e1ef;
     --shadow-sm: 0 6px 18px rgb(23 33 43 / 0.05);
 
-    /* Override Bootstrap primary variables to align with brutal blue palette */
+    
     --bs-primary: var(--color-primary);
     --bs-primary-rgb: 0, 73, 183;
     --shadow: 0 16px 40px rgb(23 33 43 / 0.08);
@@ -34,7 +32,7 @@
     --header-height: 88px;
 }
 
-/* Skip Link for Accessibility */
+/* Быстрый переход */
 .skip-link {
     position: absolute;
     top: -40px;
@@ -51,10 +49,14 @@
     top: 0;
 }
 
-/* Base HTML */
+/* Базовые стили */
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    --scrollbar-thumb: #0049b7;
+    --scrollbar-track: rgba(0, 73, 183, 0.14);
+    scrollbar-width: auto;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 body {
@@ -70,6 +72,66 @@ body {
         radial-gradient(circle at top left, rgba(0, 73, 183, 0.06), transparent 30%),
         radial-gradient(circle at right 12%, rgba(0, 124, 199, 0.05), transparent 26%),
         linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Полоса прокрутки */
+html::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+body::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+html::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb) !important;
+    background-image: none !important;
+    border-radius: 999px;
+    border: 3px solid #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb) !important;
+    background-image: none !important;
+    border-radius: 999px;
+    border: 3px solid #ffffff;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb) !important;
+    background-image: none !important;
+    border-width: 3px;
+    box-shadow: none;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb) !important;
+    background-image: none !important;
+    border-width: 3px;
+    box-shadow: none;
+}
+
+html::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbar-thumb) !important;
+    background-image: none !important;
+    box-shadow: none;
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background-color: var(--scrollbar-thumb) !important;
+    background-image: none !important;
+    box-shadow: none;
 }
 
 main {
@@ -119,9 +181,7 @@ dd {
     text-decoration: none;
 }
 
-/* ========================================
-   Typography
-   ======================================== */
+/* Типографика */
 .section__title {
     font-weight: 700;
     font-size: clamp(1.75rem, 3vw, 2.5rem);
@@ -146,9 +206,7 @@ dd {
     margin-right: auto;
 }
 
-/* ========================================
-   Container
-   ======================================== */
+/* Контейнер */
 .container,
 .container-lg,
 .container-md,
@@ -162,9 +220,7 @@ dd {
     margin-right: auto !important;
 }
 
-/* ========================================
-   Form Base Styles
-   ======================================== */
+/* Формы */
 .form-control {
     border-radius: var(--radius);
     padding: 0.75rem 1rem;
@@ -182,9 +238,7 @@ dd {
     border-color: #dc3545;
 }
 
-/* ========================================
-   Button Base
-   ======================================== */
+/* Кнопки */
 .btn {
     border-radius: var(--radius);
     font-weight: 600;
@@ -221,17 +275,13 @@ button:focus-visible,
     box-shadow: 0 14px 28px rgba(0, 73, 183, 0.24);
 }
 
-/* ========================================
-   Modal Base
-   ======================================== */
+/* Модальные окна */
 .modal-content {
     border: 0;
     border-radius: var(--radius-lg);
 }
 
-/* ========================================
-   Animations
-   ======================================== */
+/* Анимации */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -248,9 +298,7 @@ button:focus-visible,
     animation: fadeInUp 0.5s ease forwards;
 }
 
-/* ========================================
-   Print Styles
-   ======================================== */
+/* Печать */
 @media print {
 
     .header,
@@ -284,7 +332,7 @@ button:focus-visible,
     }
 }
 
-/* Reduced motion */
+/* Уменьшение анимации */
 @media (prefers-reduced-motion: reduce) {
 
     *,

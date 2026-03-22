@@ -1,10 +1,6 @@
-/* ========================================
-   COMPONENTS CSS - Все компоненты
-   ======================================== */
+﻿/* Компоненты */
 
-/* ========================================
-   Header
-   ======================================== */
+/* Шапка */
 .header {
   position: fixed;
   top: 0;
@@ -73,7 +69,6 @@
   transform: scaleX(1);
 }
 
-/* Active section indicator */
 .header-menu .nav-link.active {
   color: var(--color-primary);
   background-color: rgba(0, 73, 183, 0.1);
@@ -96,7 +91,6 @@
   color: var(--color-primary);
 }
 
-
 .navbar-collapse {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -118,9 +112,7 @@
   }
 }
 
-/* ========================================
-   Hero Section
-   ======================================== */
+/* Герой */
 .hero {
   position: relative;
   overflow: hidden;
@@ -198,7 +190,7 @@
 }
 
 .hero__list li::before {
-  content: "✓";
+  content: "вњ“";
   color: #4ade80;
   position: absolute;
   left: 0;
@@ -275,9 +267,7 @@
   z-index: 10;
 }
 
-/* ========================================
-   Stat Card
-   ======================================== */
+/* Статистика */
 .stat,
 .stat-card {
   height: 100%;
@@ -319,9 +309,7 @@
   margin-top: 0.25rem;
 }
 
-/* ========================================
-   Type Card
-   ======================================== */
+/* Типы домов */
 .card-type {
   background: #fff;
   border-radius: 16px;
@@ -367,9 +355,7 @@
   margin-bottom: 1rem;
 }
 
-/* ========================================
-   Project Card
-   ======================================== */
+/* Карточка проекта */
 .card-project {
   background: #fff;
   border-radius: 16px;
@@ -488,9 +474,7 @@
   margin-bottom: 1rem;
 }
 
-/* ========================================
-   Service Card
-   ======================================== */
+/* Карточка услуги */
 .card-service {
   background: #fff;
   border: 1px solid rgba(203, 213, 225, 0.82);
@@ -555,9 +539,7 @@
   min-height: 40px;
 }
 
-/* ========================================
-   Step Card
-   ======================================== */
+/* Этапы работы */
 .card-step {
   height: 100%;
   background: #fff;
@@ -618,9 +600,7 @@
   color: #fff;
 }
 
-/* ========================================
-   Advantage Card
-   ======================================== */
+/* Карточка преимущества */
 .card-advantage {
   height: 100%;
   background: #fff;
@@ -672,9 +652,7 @@
   margin-bottom: 0;
 }
 
-/* ========================================
-   Review Card
-   ======================================== */
+/* Карточка отзыва */
 .card-review {
   height: 100%;
   background: #fff;
@@ -769,9 +747,7 @@
   position: relative;
 }
 
-/* ========================================
-   Portfolio Card
-   ======================================== */
+/* Карточка портфолио */
 .card-portfolio {
   width: 100%;
   border: 0;
@@ -818,9 +794,7 @@
   font-size: 0.875rem;
 }
 
-/* ========================================
-   Footer
-   ======================================== */
+/* Подвал */
 .footer {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   color: #b7bfcc;
@@ -894,6 +868,51 @@
   border-color: rgba(183, 191, 204, 0.22);
 }
 
+.footer .footer-logo span {
+  transition: color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer .footer-logo:hover span {
+  color: var(--color-primary-light) !important;
+}
+
+.footer .site-footer__nav a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.15rem;
+  transition: color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer .site-footer__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.08rem;
+  width: 100%;
+  height: 1.5px;
+  border-radius: 999px;
+  background: var(--color-primary-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer .site-footer__nav a:hover {
+  color: var(--color-primary-light) !important;
+}
+
+.footer .site-footer__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer ul.list-unstyled.text-white-50.small a:not(.btn) {
+  transition: color 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer ul.list-unstyled.text-white-50.small a:not(.btn):hover {
+  color: var(--color-primary-light) !important;
+}
+
 .footer-back-to-top {
   width: 50px;
   height: 50px;
@@ -919,9 +938,7 @@
   height: 24px;
 }
 
-/* ========================================
-   CTA Section
-   ======================================== */
+/* Призыв к действию */
 .section--cta {
   background: linear-gradient(135deg, #0b1323 0%, #1e3a5f 100%);
   position: relative;
@@ -949,16 +966,12 @@
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
-/* ========================================
-   Section Alt
-   ======================================== */
+/* Альтернативная секция */
 .section--alt {
   background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
 }
 
-/* ========================================
-   Showcase Band
-   ======================================== */
+/* Полоса витрины */
 .showcase-band__panel {
   border: 1px solid rgba(216, 225, 239, 0.95);
   border-radius: 1.5rem;
@@ -1056,9 +1069,7 @@
   line-height: 1.6;
 }
 
-/* ========================================
-   Contact Section
-   ======================================== */
+/* Контакты */
 .contact-card {
   border: 1px solid rgba(216, 225, 239, 0.95);
   border-radius: 1.35rem;
@@ -1198,9 +1209,7 @@
   color: #fff;
 }
 
-/* ========================================
-   Button Shine
-   ======================================== */
+/* Блик кнопки */
 .btn-shine {
   position: relative;
   overflow: hidden;
@@ -1220,9 +1229,7 @@
   pointer-events: none;
 }
 
-/* ========================================
-   Contact List
-   ======================================== */
+/* Список контактов */
 .contact-list-item {
   display: flex;
   align-items: flex-start;
@@ -1261,9 +1268,7 @@
   overflow-wrap: normal;
 }
 
-/* ========================================
-   Trust Badges
-   ======================================== */
+/* Бейджи доверия */
 .trust-badges__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1320,9 +1325,7 @@
   line-height: 1.52;
 }
 
-/* ========================================
-   FAQ Accordion
-   ======================================== */
+/* Аккордеон ЧаВо */
 .accordion-item {
   border: 1px solid #e5e7eb;
   border-radius: var(--radius) !important;
@@ -1350,9 +1353,7 @@
   color: var(--color-muted);
 }
 
-/* ========================================
-   Reviews Carousel (Slick)
-   ======================================== */
+/* Карусель отзывов */
 .reviews-carousel {
   position: relative;
   max-width: 100%;
@@ -1363,7 +1364,7 @@
   padding: 0 50px;
 }
 
-/* Slick стрелки */
+/* Стрелки карусели */
 .reviews-carousel .slick-prev,
 .reviews-carousel .slick-next {
   position: absolute;
@@ -1411,15 +1412,13 @@
   cursor: not-allowed;
 }
 
-/* Review cards */
+/* Карточки отзывов */
 .reviews-carousel .card-review {
   padding: 1.5rem;
   margin: 0 10px;
 }
 
-/* ========================================
-   Floating Contacts Button
-   ======================================== */
+/* Плавающие контакты */
 .contact-floating {
   position: fixed;
   right: 20px;
@@ -1462,9 +1461,7 @@
   animation: ripple 2s infinite;
 }
 
-/* ========================================
-   Animations
-   ======================================== */
+/* Анимации */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1620,9 +1617,7 @@
   fill: currentColor;
 }
 
-/* ========================================
-   Project Detail Page
-   ======================================== */
+/* Страница проекта */
 .project-detail {
   padding: 2rem 0 4rem;
 }
@@ -1772,9 +1767,7 @@
   flex-shrink: 0;
 }
 
-/* ========================================
-   Projects Page
-   ======================================== */
+/* Страница проектов */
 .projects-page__hero {
   background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 50%, #e8f4ff 100%);
   padding: 4rem 0 3rem;
@@ -1803,9 +1796,7 @@
   min-height: 42px;
 }
 
-/* ========================================
-   Error Pages
-   ======================================== */
+/* Страницы ошибок */
 .error-page-main {
   min-height: calc(100svh - var(--header-height));
   display: flex;
@@ -1853,19 +1844,24 @@
 }
 
 .filter-anim-item {
-  transition: opacity 220ms ease, transform 220ms ease;
-  will-change: opacity, transform;
+  opacity: 1;
+  transition: opacity 180ms ease;
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .filter-anim-item.is-filter-hidden {
+  display: none !important;
   opacity: 0;
-  transform: translateY(8px) scale(0.985);
   pointer-events: none;
 }
 
-/* ========================================
-   Cookie Banner
-   ======================================== */
+.filter-anim-item.is-filter-enter {
+  opacity: 0;
+}
+
+/* Куки-файлы */
 .cookie-banner {
   position: fixed;
   bottom: 1rem;
@@ -1926,7 +1922,6 @@
   white-space: nowrap;
 }
 
-
 .cookie-setting {
   padding: 1rem;
   background: #f8fafc;
@@ -1937,9 +1932,7 @@
   font-size: 0.95rem;
 }
 
-/* ========================================
-   UI Refinements
-   ======================================== */
+/* Улучшения интерфейса */
 .header {
   background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid rgba(216, 225, 239, 0.92);
@@ -2591,6 +2584,329 @@
   .contact-list-item a[itemprop="email"],
   .contact-list-item [itemprop="address"] {
     font-size: 0.9rem;
+  }
+}
+
+/* Герой */
+body.page-home .hero .col-lg-5 {
+  display: flex;
+  justify-content: center;
+}
+
+body.page-home .hero-form {
+  width: min(100%, 32rem);
+  margin-inline: auto;
+}
+
+body.page-home .hero-form .form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding-left: 0;
+  margin-bottom: 0.95rem;
+}
+
+body.page-home .hero-form .form-check-input {
+  position: static;
+  float: none;
+  margin: 0;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+body.page-home .hero-form .form-check-label {
+  margin: 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 767.98px) {
+  body.page-home .hero .container {
+    display: block;
+  }
+
+  body.page-home .hero .col-lg-5 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body.page-home .hero-form {
+    width: min(100%, 31rem);
+  }
+}
+
+/* Этапы работы */
+#steps {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(0, 73, 183, 0.09), transparent 24%),
+    radial-gradient(circle at 96% 22%, rgba(0, 124, 199, 0.08), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+}
+
+#steps::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: min(92%, 1120px);
+  height: 5px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, #0049b7 0%, #007cc7 100%);
+}
+
+#steps .section-header {
+  position: relative;
+  z-index: 1;
+}
+
+#steps .section-title {
+  text-shadow: 0 8px 30px rgba(16, 24, 40, 0.08);
+}
+
+#steps .timeline {
+  position: relative;
+  z-index: 1;
+  row-gap: 1rem;
+}
+
+#steps .card-step {
+  border: 2px solid rgba(159, 181, 219, 0.8);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 251, 255, 0.96) 100%);
+  box-shadow: 0 16px 36px rgba(14, 40, 86, 0.12);
+  padding: 1.25rem 1.15rem 1.1rem 1.95rem;
+}
+
+#steps .card-step::before {
+  width: 6px;
+  left: 0.62rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0049b7 0%, #007cc7 100%);
+}
+
+#steps .card-step-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  margin-bottom: 0.45rem;
+}
+
+#steps .card-step p {
+  color: #334155 !important;
+  line-height: 1.5;
+}
+
+#steps .card-step-number {
+  width: 2.3rem;
+  height: 2.3rem;
+  top: 0.65rem;
+  right: 0.65rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(145deg, #0049b7 0%, #007cc7 100%);
+  box-shadow: 0 10px 20px rgba(0, 73, 183, 0.26);
+}
+
+#steps .card-step--final {
+  animation: finalStepPulse 2.5s ease-in-out infinite;
+}
+
+#steps .card-step--final .card-step-title,
+#steps .card-step--final p,
+#steps .card-step--final .text-muted,
+#steps .card-step--final .small {
+  color: #ffffff !important;
+}
+
+#steps .card-step--final .card-step-number {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(8, 32, 76, 0.24);
+}
+
+@keyframes finalStepPulse {
+  0%,
+  100% {
+    box-shadow: 0 20px 36px rgba(0, 73, 183, 0.24);
+  }
+
+  50% {
+    box-shadow: 0 24px 44px rgba(0, 73, 183, 0.34);
+  }
+}
+
+/* Карусель отзывов */
+.reviews-carousel {
+  overflow: visible;
+}
+
+.reviews-carousel__track {
+  padding: 0 72px;
+}
+
+.reviews-carousel .reviews-carousel__btn,
+.reviews-carousel .slick-prev,
+.reviews-carousel .slick-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 73, 183, 0.2);
+  background: linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
+  color: #0049b7;
+  box-shadow: 0 12px 28px rgba(12, 38, 81, 0.14);
+  transition: box-shadow var(--transition), color var(--transition), background var(--transition), border-color var(--transition), opacity var(--transition);
+}
+
+.reviews-carousel .reviews-carousel__btn svg,
+.reviews-carousel .slick-prev svg,
+.reviews-carousel .slick-next svg {
+  width: 20px;
+  height: 20px;
+}
+
+.reviews-carousel .reviews-carousel__btn:hover,
+.reviews-carousel .slick-prev:hover,
+.reviews-carousel .slick-next:hover {
+  background: linear-gradient(180deg, #0049b7 0%, #003f9f 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 16px 32px rgba(0, 73, 183, 0.3);
+}
+
+.reviews-carousel .reviews-carousel__btn:active,
+.reviews-carousel .slick-prev:active,
+.reviews-carousel .slick-next:active {
+  box-shadow: 0 12px 28px rgba(12, 38, 81, 0.14);
+}
+
+.reviews-carousel .reviews-carousel__btn:focus-visible,
+.reviews-carousel .slick-prev:focus-visible,
+.reviews-carousel .slick-next:focus-visible {
+  outline: 3px solid rgba(0, 73, 183, 0.24);
+  outline-offset: 3px;
+}
+
+.reviews-carousel .slick-prev {
+  left: -20px;
+}
+
+.reviews-carousel .slick-next {
+  right: -14px;
+}
+
+@media (max-width: 767.98px) {
+  .reviews-carousel__track {
+    padding: 0 0 3.2rem;
+  }
+
+  .reviews-carousel .reviews-carousel__btn,
+  .reviews-carousel .slick-prev,
+  .reviews-carousel .slick-next {
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 42px;
+    height: 42px;
+  }
+
+  .reviews-carousel .slick-prev {
+    left: calc(50% - 50px);
+  }
+
+  .reviews-carousel .slick-next {
+    right: calc(50% - 50px);
+  }
+}
+
+/* Строящиеся объекты */
+.construction-sites-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.construction-site-card {
+  position: relative;
+  border: 1px solid rgba(216, 225, 239, 0.94);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(11, 35, 80, 0.07);
+}
+
+.construction-site-card::before {
+  content: "";
+  position: absolute;
+  top: 0.85rem;
+  bottom: 0.85rem;
+  left: 0.72rem;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0049b7 0%, #007cc7 100%);
+}
+
+.construction-site-card__title,
+.construction-site-card__address,
+.construction-site-card__meta,
+.construction-site-card__progress {
+  margin-left: 0.9rem;
+}
+
+.construction-site-card__title {
+  margin-bottom: 0.4rem;
+  font-size: 1.03rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.construction-site-card__address {
+  margin-bottom: 0.7rem;
+  color: #4b5563;
+  font-size: 0.93rem;
+}
+
+.construction-site-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.65rem;
+  font-size: 0.83rem;
+  color: #334155;
+}
+
+.construction-site-card__progress {
+  margin-top: 0.48rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+}
+
+.construction-site-card__progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0049b7 0%, #007cc7 100%);
+}
+
+/* О компании */
+@media (min-width: 1200px) and (max-width: 1400px) and (min-height: 1200px) {
+  #about .section-header {
+    max-width: 860px;
+    margin-inline: auto;
+  }
+
+  #about .section__text {
+    max-width: 780px;
+    margin-inline: auto;
+  }
+
+  #about .row {
+    justify-content: center;
   }
 }
 

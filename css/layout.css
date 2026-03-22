@@ -1,10 +1,6 @@
-/* ========================================
-   LAYOUT CSS - Сетки, секции, адаптивность
-   ======================================== */
+﻿/* Сетка и адаптив */
 
-/* ========================================
-   Section Base
-   ======================================== */
+/* Базовые секции */
 .section {
   max-width: 100%;
   overflow: hidden;
@@ -12,7 +8,6 @@
   padding-bottom: 5rem;
 }
 
-/* Ограничение для фоновых секций */
 .section--cta,
 .section--alt,
 .hero {
@@ -27,25 +22,23 @@
   margin-right: auto;
 }
 
-/* ========================================
-   Grids
-   ======================================== */
+/* Сетки */
 
-/* House Types Grid */
+/* Сетка типов домов */
 .house-types__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* Services Grid */
+/* Сетка услуг */
 .services__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-/* Projects Grid */
+/* Сетка проектов */
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -56,23 +49,21 @@
   display: none;
 }
 
-/* Reviews Grid */
+/* Сетка отзывов */
 .reviews__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* Trust Badges Grid */
+/* Сетка доверия */
 .trust-badges__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-/* ========================================
-   Responsive - Large devices (≤1399px)
-   ======================================== */
+/* Адаптив до 1399 */
 @media (max-width: 1399.98px) {
   :root {
     --container-max: 1140px;
@@ -83,9 +74,7 @@
   }
 }
 
-/* ========================================
-   Responsive - Medium devices (≤1199px)
-   ======================================== */
+/* Адаптив до 1199 */
 @media (max-width: 1199.98px) {
   :root {
     --container-max: 960px;
@@ -113,9 +102,7 @@
   }
 }
 
-/* ========================================
-   Responsive - Tablets (≤991px)
-   ======================================== */
+/* Адаптив до 991 */
 @media (max-width: 991.98px) {
   :root {
     --container-max: 720px;
@@ -207,7 +194,7 @@
     height: 300px;
   }
 
-  /* Grids */
+  /* Сетки */
   .house-types__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -228,9 +215,7 @@
   }
 }
 
-/* ========================================
-   Responsive - Small devices (≤767px)
-   ======================================== */
+/* Адаптив до 767 */
 @media (max-width: 767.98px) {
   :root {
     --container-max: 540px;
@@ -410,7 +395,7 @@
     padding: 1.25rem;
   }
 
-  /* Grids */
+  /* Сетки */
   .house-types__grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -434,7 +419,7 @@
     grid-template-columns: 1fr;
   }
 
-  /* Carousel buttons */
+  /* Кнопки карусели */
   .reviews-carousel__track {
     padding: 0 40px;
   }
@@ -446,9 +431,7 @@
   }
 }
 
-/* ========================================
-   Responsive - Extra small devices (≤575px)
-   ======================================== */
+/* Адаптив до 575 */
 @media (max-width: 575.98px) {
   :root {
     --container-padding: 0.875rem;
@@ -542,9 +525,7 @@
   }
 }
 
-/* ========================================
-   Responsive - Very small devices (≤399px)
-   ======================================== */
+/* Адаптив до 399 */
 @media (max-width: 399.98px) {
   :root {
     --container-padding: 0.75rem;
@@ -575,9 +556,7 @@
   }
 }
 
-/* ========================================
-   Projects Grid Page
-   ======================================== */
+/* Страница проектов */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -597,9 +576,7 @@
   }
 }
 
-/* ========================================
-   Page Spacing Overrides
-   ======================================== */
+/* Отступы страниц */
 body.page-home,
 body.page-projects,
 body.page-project-detail,
@@ -614,8 +591,13 @@ body.page-home main {
 }
 
 body.page-home .hero {
-  margin-top: calc(var(--header-height) * -1);
-  padding-top: calc(var(--header-height) + 1.5rem);
+  margin-top: 0 !important;
+  padding-top: calc(var(--header-height) + 1.25rem) !important;
+  padding-bottom: clamp(1rem, 3vh, 2rem) !important;
+}
+
+body.page-home .hero .row {
+  min-height: calc(100svh - var(--header-height) - 1.5rem);
 }
 
 body.page-projects main,
@@ -644,12 +626,18 @@ body.page-privacy main .container {
   }
 
   body.page-home main {
-    padding-top: var(--header-height) !important;
+    padding-top: 0 !important;
   }
 
   body.page-home .hero {
-    margin-top: 0;
-    padding-top: 1.25rem;
+    padding-top: calc(var(--header-height) + 1rem) !important;
+    padding-bottom: 1rem !important;
+  }
+
+  body.page-home .hero .row {
+    min-height: auto;
+    padding-top: 0.35rem;
+    padding-bottom: 0.9rem;
   }
 
   body.page-projects main,
@@ -667,7 +655,12 @@ body.page-privacy main .container {
   }
 
   body.page-home .hero {
-    padding-top: 1rem;
+    padding-top: calc(var(--header-height) + 0.85rem) !important;
+  }
+
+  body.page-home .hero .row {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .section {
@@ -690,7 +683,7 @@ body.page-privacy main .container {
   }
 
   body.page-home .hero {
-    padding-top: 0.85rem;
+    padding-top: calc(var(--header-height) + 0.75rem) !important;
   }
 
   .projects-grid {
@@ -698,9 +691,54 @@ body.page-privacy main .container {
   }
 }
 
-/* ========================================
-   Mobile Navbar Polish
-   ======================================== */
+@media (max-height: 840px) {
+  body.page-home .hero {
+    overflow: visible;
+    padding-top: calc(var(--header-height) + 0.75rem) !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  body.page-home .hero .row {
+    min-height: auto;
+    align-items: flex-start !important;
+  }
+
+  body.page-home .hero-title,
+  body.page-home .hero__title {
+    font-size: clamp(1.8rem, 4.2vw, 3.05rem);
+    margin-bottom: 0.55rem;
+  }
+
+  body.page-home .hero-subtitle,
+  body.page-home .hero__subtitle {
+    margin-bottom: 0.85rem;
+    line-height: 1.45;
+  }
+
+  body.page-home .hero-list,
+  body.page-home .hero__list {
+    gap: 0.45rem;
+  }
+
+  body.page-home .hero-form .card-body {
+    padding: clamp(0.95rem, 2.2vw, 1.3rem);
+  }
+
+  body.page-home .hero-form .form-control {
+    min-height: 42px;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  body.page-home .hero-form .btn-primary {
+    min-height: 44px;
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Мобильный навбар */
 @media (max-width: 991.98px) {
   .header .navbar-collapse {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 249, 255, 0.96));

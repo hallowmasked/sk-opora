@@ -1,26 +1,44 @@
-/**
- * Main JavaScript for Construction Company Website
- * Handles: phone mask, form validation, scroll effects, portfolio filter, modals
- */
+
 
 (() => {
   'use strict';
 
-  // ========================================
-  // DOM Elements
-  // ========================================
+  
   const phoneInputs = document.querySelectorAll('.js-phone');
   const forms = document.querySelectorAll('.js-form');
   const header = document.querySelector('.header');
+  const navbarCollapse = document.getElementById('mainNav');
   const toastEl = document.getElementById('formSuccessToast');
   const toast = toastEl ? new bootstrap.Toast(toastEl, { delay: 4000 }) : null;
   const serviceModal = document.getElementById('serviceModal');
   const siteConfig = window.siteConfig || {};
   const FORM_ENDPOINT = siteConfig.forms?.endpoint || null;
 
-  // ========================================
-  // Phone Mask
-  // ========================================
+  const updateHeaderHeightVar = () => {
+    if (!header) return;
+    const totalHeight = header.getBoundingClientRect().height;
+    const collapseHeight = navbarCollapse && navbarCollapse.classList.contains('show')
+      ? navbarCollapse.getBoundingClientRect().height
+      : 0;
+    const baseHeight = Math.max(64, Math.ceil(totalHeight - collapseHeight));
+    document.documentElement.style.setProperty('--header-height', `${baseHeight}px`);
+  };
+
+  updateHeaderHeightVar();
+  window.addEventListener('resize', updateHeaderHeightVar, { passive: true });
+  window.addEventListener('orientationchange', updateHeaderHeightVar);
+  window.addEventListener('load', updateHeaderHeightVar);
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateHeaderHeightVar).catch(() => {});
+  }
+
+  if (navbarCollapse) {
+    navbarCollapse.addEventListener('shown.bs.collapse', updateHeaderHeightVar);
+    navbarCollapse.addEventListener('hidden.bs.collapse', updateHeaderHeightVar);
+  }
+
+  
   const formatPhone = (value) => {
     const digits = value.replace(/\D/g, '').replace(/^8/, '7').slice(0, 11);
     const normalized = digits.startsWith('7') ? digits : `7${digits}`;
@@ -50,9 +68,7 @@
     });
   });
 
-  // ========================================
-  // Error Toast
-  // ========================================
+  
   const errorToastEl = document.getElementById('formErrorToast');
   const errorToast = errorToastEl ? new bootstrap.Toast(errorToastEl, { delay: 5000 }) : null;
 
@@ -101,15 +117,12 @@
     }
   };
 
-  // ========================================
-  // Form Validation & Submission
-  // ========================================
+  
   const validateForm = (form) => {
     let isValid = true;
     const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
 
     inputs.forEach((input) => {
-      // Remove previous invalid state
       input.classList.remove('is-invalid');
 
       if (input.type === 'checkbox') {
@@ -166,7 +179,6 @@
       event.preventDefault();
 
       if (!validateForm(form)) {
-        // Focus first invalid field
         const firstInvalid = form.querySelector('.is-invalid');
         if (firstInvalid) firstInvalid.focus();
         return;
@@ -174,15 +186,11 @@
 
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
-
-      // Show loading state
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Отправка...';
 
       try {
         await submitForm(form);
-
-        // Reset form and show success
         form.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
@@ -190,8 +198,6 @@
         if (toast) {
           toast.show();
         }
-
-        // Close modal if form is inside one
         const modal = form.closest('.modal');
         if (modal) {
           const bsModal = bootstrap.Modal.getInstance(modal);
@@ -200,14 +206,10 @@
       } catch (error) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
-
-        // Show error message
         const errorMessage = error.message || 'Произошла ошибка. Попробуйте позже или позвоните нам.';
         showError(errorMessage);
       }
     });
-
-    // Real-time validation on blur
     form.querySelectorAll('input, textarea, select').forEach((input) => {
       input.addEventListener('blur', () => {
         if (input.hasAttribute('required')) {
@@ -221,37 +223,187 @@
           }
         }
       });
-
-      // Remove invalid state on input
       input.addEventListener('input', () => {
         input.classList.remove('is-invalid');
       });
     });
   });
 
-  // ========================================
-  // Scroll Effects
-  // ========================================
+  const addMoreReviews = () => {
+    const reviewsList = document.querySelector('.reviews-carousel__list');
+    if (!reviewsList) return;
+
+    const existingCards = reviewsList.querySelectorAll('.card-review').length;
+    const targetReviewsCount = 40;
+    if (existingCards >= targetReviewsCount) return;
+
+    const names = [
+      'Алексей Воронов', 'Марина Левченко', 'Ирина Соколова', 'Павел Шевченко',
+      'Николай Денисов', 'Екатерина Орлова', 'Виктор Кравцов', 'Оксана Савельева',
+      'Григорий Панченко', 'Анна Миронова', 'Сергей Руденко', 'Людмила Капустина',
+      'Роман Киселёв', 'Наталья Мельник', 'Илья Богданов', 'Татьяна Журавлёва',
+      'Денис Громов', 'Светлана Дьякова', 'Егор Сидоров', 'Ксения Назарова'
+    ];
+
+    const projects = [
+      { name: 'Север', area: 118, type: 'Кирпичный' },
+      { name: 'Альфа', area: 132, type: 'Газобетон' },
+      { name: 'Вега', area: 98, type: 'Каркасный' },
+      { name: 'Терра', area: 175, type: 'Кирпичный' },
+      { name: 'Солярис', area: 148, type: 'Газобетон' },
+      { name: 'Сканди', area: 112, type: 'Каркасный' },
+      { name: 'Лофт', area: 145, type: 'Кирпичный' },
+      { name: 'Эко', area: 88, type: 'Каркасный' }
+    ];
+
+    const reviewTexts = [
+      'Работы шли по плану, прораб регулярно присылал фото и видео. По качеству вопросов нет.',
+      'Понравилась прозрачная смета: все расходы были заранее понятны и без скрытых доплат.',
+      'Команда аккуратная, участок после каждого этапа оставляли в порядке.',
+      'Удобная коммуникация: всегда на связи, быстро отвечали на вопросы по материалам и срокам.',
+      'Дом получился теплым и удобным по планировке. Живем постоянно, всё устраивает.',
+      'Хорошо организовали этапы от фундамента до кровли, не затягивали работы.',
+      'Помогли адаптировать проект под участок и бюджет, без потери качества.',
+      'Всё сделали в рамках договора, подробно объясняли каждый этап строительства.'
+    ];
+
+    const monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+
+    const formatDate = (index) => {
+      const date = new Date(2025, index % 12, (index % 27) + 1);
+      const iso = date.toISOString().split('T')[0];
+      const text = `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+      return { iso, text };
+    };
+
+    const escapeHtml = (value) => String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+
+    const stars = (rating) => (rating >= 5 ? '★★★★★' : '★★★★☆');
+    const toAdd = targetReviewsCount - existingCards;
+    const chunks = [];
+
+    for (let i = 0; i < toAdd; i++) {
+      const idx = existingCards + i;
+      const name = names[idx % names.length];
+      const project = projects[idx % projects.length];
+      const text = reviewTexts[idx % reviewTexts.length];
+      const rating = idx % 7 === 0 ? 4 : 5;
+      const date = formatDate(idx + 3);
+
+      chunks.push(`
+        <article class="card-review card-review--real" role="listitem" itemscope itemtype="https://schema.org/Review">
+          <span class="card-review-house-type">${escapeHtml(project.type)}</span>
+          <div class="card-review-rating" aria-label="Оценка: ${rating} из 5">
+            <span aria-hidden="true">${stars(rating)}</span>
+          </div>
+          <blockquote class="card-review-text" itemprop="reviewBody">
+            <p class="mb-0">"${escapeHtml(text)}"</p>
+          </blockquote>
+          <footer class="card-review-author">
+            <cite itemprop="author">${escapeHtml(name)}</cite>
+            <time itemprop="datePublished" datetime="${date.iso}">${escapeHtml(date.text)}</time>
+            <p class="card-review-house-project">Проект «${escapeHtml(project.name)}», ${project.area} м²</p>
+          </footer>
+          <div class="card-review-verified" aria-label="Проверенный отзыв">Проверенный отзыв</div>
+        </article>
+      `);
+    }
+
+    const hasSlick = typeof window.jQuery === 'function'
+      && typeof window.jQuery.fn.slick === 'function'
+      && window.jQuery(reviewsList).hasClass('slick-initialized');
+
+    if (hasSlick) {
+      const $list = window.jQuery(reviewsList);
+      chunks.forEach((cardHtml) => {
+        $list.slick('slickAdd', cardHtml);
+      });
+    } else {
+      reviewsList.insertAdjacentHTML('beforeend', chunks.join(''));
+    }
+  };
+
+  const renderConstructionSites = async () => {
+    const list = document.getElementById('constructionSitesList');
+    const liveStatValue = document.querySelector('.contact-live-stat__value');
+    if (!list && !liveStatValue) return;
+
+    const fallbackSites = [
+      { name: 'Дом «Север 2»', address: 'г. Мариуполь, Ильичёвский район', stage: 'Фундамент', progress: 20 },
+      { name: 'Дом «Терра 3»', address: 'г. Мариуполь, Центральный район', stage: 'Коробка', progress: 48 },
+      { name: 'Дом «Солярис 5»', address: 'г. Мариуполь, Левобережный район', stage: 'Кровля', progress: 74 },
+      { name: 'Дом «Вега 7»', address: 'г. Мариуполь, Приморский район', stage: 'Инженерные сети', progress: 82 }
+    ];
+
+    const getHouseWord = (count) => {
+      const mod10 = count % 10;
+      const mod100 = count % 100;
+      if (mod10 === 1 && mod100 !== 11) return 'дом';
+      if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'дома';
+      return 'домов';
+    };
+
+    const updateLiveStat = (rawCount) => {
+      if (!liveStatValue) return;
+      const count = Math.max(0, Math.floor(Number(rawCount) || 0));
+      liveStatValue.textContent = `${count} ${getHouseWord(count)}`;
+    };
+
+    const render = (sites) => {
+      if (!list) return;
+      list.innerHTML = sites.map((site) => {
+        const progress = Math.max(0, Math.min(100, Number(site.progress) || 0));
+        return `
+          <article class="construction-site-card" role="listitem">
+            <h3 class="construction-site-card__title">${site.name}</h3>
+            <p class="construction-site-card__address">${site.address}</p>
+            <div class="construction-site-card__meta">
+              <span>Этап: ${site.stage}</span>
+              <span>${progress}%</span>
+            </div>
+            <div class="construction-site-card__progress" aria-hidden="true">
+              <span style="width:${progress}%"></span>
+            </div>
+          </article>
+        `;
+      }).join('');
+    };
+
+    try {
+      const response = await fetch('data/construction-sites.json');
+      if (!response.ok) throw new Error('Failed to load sites');
+      const payload = await response.json();
+      const sites = Array.isArray(payload.sites) ? payload.sites : [];
+      const normalizedSites = sites.length ? sites : fallbackSites;
+      const configuredCount = Number(payload.activeCount);
+      const count = Number.isFinite(configuredCount) ? configuredCount : normalizedSites.length;
+      render(normalizedSites);
+      updateLiveStat(count);
+    } catch (error) {
+      render(fallbackSites);
+      updateLiveStat(fallbackSites.length);
+    }
+  };
+
+  addMoreReviews();
+  renderConstructionSites();
+
+  
   let lastScrollY = 0;
   let ticking = false;
-  let headerOffsetTop = 0;
-  const heroHeight = 600; // Примерная высота hero секции
-
-  // Запоминаем начальную позицию шапки
-  if (header) {
-    headerOffsetTop = header.offsetTop;
-  }
+  const heroHeight = 600;
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-
-    // Header: прозрачный с размытием по умолчанию, залитый при скролле past hero
     if (header) {
       if (scrollY > heroHeight - 100) {
-        // Navbar становится залитым (без размытия)
         header.classList.add('header--opaque');
       } else {
-        // Прозрачный с размытием
         header.classList.remove('header--opaque');
       }
     }
@@ -267,9 +419,7 @@
     }
   }, { passive: true });
 
-  // ========================================
-  // Smooth Scroll for Anchor Links
-  // ========================================
+  
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (event) => {
       const href = anchor.getAttribute('href');
@@ -286,8 +436,6 @@
           top: targetPosition,
           behavior: 'smooth'
         });
-
-        // Close mobile menu if open
         const navCollapse = document.getElementById('mainNav');
         if (navCollapse && navCollapse.classList.contains('show')) {
           const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
@@ -297,9 +445,7 @@
     });
   });
 
-  // ========================================
-  // Active Section Indicator
-  // ========================================
+  
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.header-menu .nav-link');
 
@@ -325,40 +471,39 @@
     });
   });
 
-  // ========================================
-  // Portfolio Filter
-  // ========================================
+  
   const filterGroups = document.querySelectorAll('[role="group"]');
-  const filterHideTimers = new WeakMap();
+  const filterEnterFrames = new WeakMap();
 
-  const clearFilterHideTimer = (item) => {
-    const timerId = filterHideTimers.get(item);
-    if (typeof timerId === 'number') {
-      clearTimeout(timerId);
-      filterHideTimers.delete(item);
+  const clearFilterEnterFrame = (item) => {
+    const frameId = filterEnterFrames.get(item);
+    if (typeof frameId === 'number') {
+      cancelAnimationFrame(frameId);
+      filterEnterFrames.delete(item);
     }
   };
 
-  const animateFilterItem = (item, shouldShow) => {
-    clearFilterHideTimer(item);
-    item.classList.add('filter-anim-item');
-
-    if (shouldShow) {
-      item.style.display = '';
-      item.removeAttribute('aria-hidden');
-      void item.offsetWidth;
-      item.classList.remove('is-filter-hidden');
-      return;
-    }
-
+  const hideFilterItem = (item) => {
+    clearFilterEnterFrame(item);
     item.classList.add('is-filter-hidden');
+    item.classList.remove('is-filter-enter');
     item.setAttribute('aria-hidden', 'true');
+  };
 
-    const timerId = window.setTimeout(() => {
-      item.style.display = 'none';
-    }, 220);
+  const showFilterItem = (item) => {
+    clearFilterEnterFrame(item);
+    const wasHidden = item.classList.contains('is-filter-hidden');
+    item.classList.remove('is-filter-hidden');
+    item.removeAttribute('aria-hidden');
 
-    filterHideTimers.set(item, timerId);
+    if (!wasHidden) return;
+
+    item.classList.add('is-filter-enter');
+    const frameId = requestAnimationFrame(() => {
+      item.classList.remove('is-filter-enter');
+      filterEnterFrames.delete(item);
+    });
+    filterEnterFrames.set(item, frameId);
   };
 
   filterGroups.forEach((group) => {
@@ -375,6 +520,7 @@
     items.forEach((item) => {
       item.classList.add('filter-anim-item');
       item.classList.remove('is-filter-hidden');
+      item.classList.remove('is-filter-enter');
       item.style.display = '';
       item.removeAttribute('aria-hidden');
     });
@@ -392,15 +538,17 @@
         const value = filterBtn.dataset.filter;
         items.forEach((item) => {
           const shouldShow = value === 'all' || item.dataset.type === value;
-          animateFilterItem(item, shouldShow);
+          if (shouldShow) {
+            showFilterItem(item);
+          } else {
+            hideFilterItem(item);
+          }
         });
       });
     });
   });
 
-  // ========================================
-  // Portfolio Modal
-  // ========================================
+  
   const portfolioModal = document.getElementById('portfolioModal');
   if (portfolioModal) {
     portfolioModal.addEventListener('show.bs.modal', (event) => {
@@ -432,9 +580,7 @@
     });
   }
 
-  // ========================================
-  // Intersection Observer for Animations
-  // ========================================
+  
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -449,16 +595,12 @@
       }
     });
   }, observerOptions);
-
-  // Observe elements
   document.querySelectorAll('.service-card, .adv-card, .review-card, .step-card, .project-card, .type-card').forEach((el) => {
     el.style.opacity = '0';
     animateOnScroll.observe(el);
   });
 
-  // ========================================
-  // Lazy Load Images (placeholder for future)
-  // ========================================
+  
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -478,14 +620,9 @@
     });
   }
 
-  // ========================================
-  // Mobile Menu - Close on outside click
-  // ========================================
-  const navbarCollapse = document.getElementById('mainNav');
   const navbarToggler = document.querySelector('.navbar-toggler');
 
   if (navbarCollapse && navbarToggler) {
-    // Close menu when clicking outside
     document.addEventListener('click', (event) => {
       const isNavbarOpen = navbarCollapse.classList.contains('show');
       const isClickInsideNavbar = navbarCollapse.contains(event.target);
@@ -496,8 +633,6 @@
         if (bsCollapse) bsCollapse.hide();
       }
     });
-
-    // Close menu when clicking on a nav link
     navbarCollapse.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', () => {
         if (navbarCollapse.classList.contains('show')) {
@@ -508,33 +643,23 @@
     });
   }
 
-  // ========================================
-  // Keyboard Navigation
-  // ========================================
+  
   document.addEventListener('keydown', (event) => {
-    // ESC key closes modals and mobile menu
     if (event.key === 'Escape') {
-      // Close mobile menu
       if (navbarCollapse && navbarCollapse.classList.contains('show')) {
         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
         if (bsCollapse) bsCollapse.hide();
       }
-
-      // Close modals
       const openModal = document.querySelector('.modal.show');
       if (openModal) {
         const bsModal = bootstrap.Modal.getInstance(openModal);
         if (bsModal) bsModal.hide();
       }
-
-      // Close floating contacts popup
       closeAllFloatingPopups();
     }
   });
 
-  // ========================================
-  // Floating Contacts Button
-  // ========================================
+  
   const closeAllFloatingPopups = () => {
     document.querySelectorAll('.contact-floating').forEach((widget) => {
       const floatingMainBtn = widget.querySelector('.contact-floating-main');
@@ -579,9 +704,7 @@
     initFloatingContacts();
   }
 
-  // ========================================
-  // Cookie Banner
-  // ========================================
+  
   if (!document.getElementById('cookieBanner')) {
     document.body.insertAdjacentHTML('beforeend', `
       <div class="cookie-banner" id="cookieBanner" role="alert" aria-live="polite">
@@ -710,7 +833,6 @@
 
   if (cookieSettingsBtn) {
     cookieSettingsBtn.addEventListener('click', () => {
-      // Open cookie settings modal
       const modal = document.getElementById('cookieSettingsModal');
       if (modal && bootstrap.Modal) {
         const bsModal = new bootstrap.Modal(modal);
@@ -735,8 +857,6 @@
       removeBrowserCookie(COOKIE_CONSENT_KEY);
     }
   }
-
-  // Save cookie settings
   const cookieSaveSettingsBtn = document.getElementById('cookieSaveSettings');
   if (cookieSaveSettingsBtn) {
     cookieSaveSettingsBtn.addEventListener('click', () => {
@@ -751,15 +871,11 @@
       if (settings.analytics) {
         initYandexMetrika();
       }
-      
-      // Close modal
       const modal = document.getElementById('cookieSettingsModal');
       if (modal && bootstrap.Modal) {
         const bsModal = bootstrap.Modal.getInstance(modal);
         if (bsModal) bsModal.hide();
       }
-      
-      // Hide banner
       hideCookieBanner();
     });
   }
@@ -802,8 +918,5 @@
     initYandexMetrika();
   }
 
-  // ========================================
-  // Init complete
-  // ========================================
-
+  
 })();
