@@ -53,6 +53,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     --scrollbar-thumb: #0049b7;
     --scrollbar-track: rgba(0, 73, 183, 0.14);
     scrollbar-width: auto;

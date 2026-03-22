@@ -1977,6 +1977,10 @@
   min-height: 100svh;
 }
 
+.hero--bg-image {
+  height: auto;
+}
+
 .hero {
   display: flex;
   align-items: stretch;
@@ -1992,6 +1996,27 @@
   width: 100%;
   min-height: calc(100svh - var(--header-height));
   align-items: center;
+}
+
+body.page-home .hero,
+body.page-home .hero--bg-image {
+  min-height: calc(var(--app-vh, 1vh) * 100);
+}
+
+body.page-home .hero .row {
+  min-height: calc((var(--app-vh, 1vh) * 100) - var(--header-height));
+}
+
+html.ios-telegram-webview body.page-home #home {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  overflow: visible;
+}
+
+html.ios-telegram-webview body.page-home main > section:not(#home) {
+  position: relative;
+  z-index: 2;
 }
 
 .hero--bg-image::before {

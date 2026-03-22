@@ -15,6 +15,20 @@
   const siteConfig = window.siteConfig || {};
   const FORM_ENDPOINT = siteConfig.forms?.endpoint || null;
 
+  const updateViewportHeightVar = () => {
+    const vh = Math.max(1, window.innerHeight) * 0.01;
+    document.documentElement.style.setProperty('--app-vh', `${vh}px`);
+  };
+
+  const ua = navigator.userAgent || '';
+  const isIOS = /iP(hone|od|ad)/i.test(ua)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isTelegramWebView = /Telegram/i.test(ua);
+
+  if (isIOS && isTelegramWebView) {
+    document.documentElement.classList.add('ios-telegram-webview');
+  }
+
   const updateHeaderHeightVar = () => {
     if (!header) return;
     const navbar = header.querySelector('.navbar');
@@ -26,9 +40,21 @@
   updateHeaderHeightVar();
   setTimeout(updateHeaderHeightVar, 80);
   setTimeout(updateHeaderHeightVar, 260);
+  updateViewportHeightVar();
+  setTimeout(updateViewportHeightVar, 120);
+  setTimeout(updateViewportHeightVar, 320);
   window.addEventListener('resize', updateHeaderHeightVar, { passive: true });
   window.addEventListener('orientationchange', updateHeaderHeightVar);
   window.addEventListener('load', updateHeaderHeightVar);
+  window.addEventListener('resize', updateViewportHeightVar, { passive: true });
+  window.addEventListener('orientationchange', () => {
+    setTimeout(updateViewportHeightVar, 120);
+  });
+  window.addEventListener('load', updateViewportHeightVar);
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', updateViewportHeightVar);
+  }
 
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updateHeaderHeightVar).catch(() => {});
