@@ -8,6 +8,7 @@
   const forms = document.querySelectorAll('.js-form');
   const header = document.querySelector('.header');
   const navbarCollapse = document.getElementById('mainNav');
+  const navbarToggler = document.querySelector('.navbar-toggler');
   const toastEl = document.getElementById('formSuccessToast');
   const toast = toastEl ? new bootstrap.Toast(toastEl, { delay: 4000 }) : null;
   const serviceModal = document.getElementById('serviceModal');
@@ -17,7 +18,13 @@
   const updateHeaderHeightVar = () => {
     if (!header) return;
     const totalHeight = header.getBoundingClientRect().height;
-    const collapseHeight = navbarCollapse && navbarCollapse.classList.contains('show')
+    const togglerVisible = navbarToggler
+      ? window.getComputedStyle(navbarToggler).display !== 'none'
+      : false;
+    const collapseVisible = navbarCollapse
+      ? window.getComputedStyle(navbarCollapse).display !== 'none' && navbarCollapse.getBoundingClientRect().height > 1
+      : false;
+    const collapseHeight = togglerVisible && collapseVisible
       ? navbarCollapse.getBoundingClientRect().height
       : 0;
     const baseHeight = Math.max(64, Math.ceil(totalHeight - collapseHeight));
@@ -25,6 +32,8 @@
   };
 
   updateHeaderHeightVar();
+  setTimeout(updateHeaderHeightVar, 80);
+  setTimeout(updateHeaderHeightVar, 260);
   window.addEventListener('resize', updateHeaderHeightVar, { passive: true });
   window.addEventListener('orientationchange', updateHeaderHeightVar);
   window.addEventListener('load', updateHeaderHeightVar);
@@ -619,8 +628,6 @@
       imageObserver.observe(img);
     });
   }
-
-  const navbarToggler = document.querySelector('.navbar-toggler');
 
   if (navbarCollapse && navbarToggler) {
     document.addEventListener('click', (event) => {
