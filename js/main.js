@@ -333,7 +333,7 @@
 
   const clearFilterHideTimer = (item) => {
     const timerId = filterHideTimers.get(item);
-    if (timerId) {
+    if (typeof timerId === 'number') {
       clearTimeout(timerId);
       filterHideTimers.delete(item);
     }
@@ -365,10 +365,10 @@
     const groupFilters = group.querySelectorAll('.js-filter');
     if (!groupFilters.length) return;
 
-    const isProjectsFilter = group.classList.contains('projects-filter');
-    const items = isProjectsFilter
-      ? document.querySelectorAll('.projects-grid [data-type]')
-      : document.querySelectorAll('#portfolioGrid .portfolio-item');
+    const scopeRoot = group.closest('main') || document;
+    const projectsItems = scopeRoot.querySelectorAll('.projects-grid [data-type]');
+    const portfolioItems = scopeRoot.querySelectorAll('#portfolioGrid .portfolio-item');
+    const items = projectsItems.length ? projectsItems : portfolioItems;
 
     if (!items.length) return;
 

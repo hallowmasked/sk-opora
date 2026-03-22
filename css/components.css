@@ -493,42 +493,66 @@
    ======================================== */
 .card-service {
   background: #fff;
-  border-radius: 16px;
-  padding: 1.5rem;
+  border: 1px solid rgba(203, 213, 225, 0.82);
+  border-radius: 1.1rem;
+  padding: 1.35rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(12, 28, 62, 0.07);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+.card-service::before {
+  content: none;
+}
+
 .card-service:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: rgba(0, 73, 183, 0.24);
+  box-shadow: 0 14px 28px rgba(8, 24, 54, 0.11);
 }
 
 .card-service-icon {
-  margin-bottom: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
+  margin-bottom: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 73, 183, 0.1);
   color: var(--color-primary);
 }
 
 .card-service-icon svg {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
 }
 
 .card-service-title {
-  font-size: 1.1rem;
+  font-size: 1.04rem;
   font-weight: 700;
   color: var(--color-dark);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.35;
 }
 
 .card-service-desc {
   color: var(--color-muted);
   font-size: 0.95rem;
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  margin-bottom: 0.95rem;
+  line-height: 1.55;
   flex-grow: 1;
+}
+
+.card-service .btn {
+  align-self: stretch;
+  border-width: 1.5px;
+  border-radius: 0.75rem;
+  padding-inline: 1rem;
+  min-height: 40px;
 }
 
 /* ========================================
@@ -600,33 +624,52 @@
 .card-advantage {
   height: 100%;
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  text-align: center;
+  border: 1px solid rgba(203, 213, 225, 0.82);
+  border-radius: 1.1rem;
+  padding: 1.25rem;
+  text-align: left !important;
+  box-shadow: 0 8px 20px rgba(12, 28, 62, 0.07);
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.card-advantage::before {
+  content: none;
 }
 
 .card-advantage:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--color-primary-light);
+  box-shadow: 0 14px 28px rgba(8, 24, 54, 0.11);
+  border-color: rgba(0, 73, 183, 0.24);
 }
 
 .card-advantage-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
   margin-bottom: 0.75rem;
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 73, 183, 0.1);
   color: var(--color-primary);
 }
 
 .card-advantage-icon svg {
-  width: 40px;
-  height: 40px;
+  width: 22px;
+  height: 22px;
 }
 
 .card-advantage-title {
   color: var(--color-dark);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.card-advantage-desc {
+  color: #4b5563;
+  font-size: 0.93rem;
+  line-height: 1.52;
+  margin-bottom: 0;
 }
 
 /* ========================================
@@ -649,10 +692,11 @@
 }
 
 .card-review-rating {
-  color: var(--color-primary-light);
+  color: #f59e0b;
   font-size: 1.25rem;
   letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
+  text-shadow: 0 1px 0 rgba(120, 74, 0, 0.18);
 }
 
 .card-review-text {
@@ -704,10 +748,21 @@
 }
 
 .card-review-verified {
-  margin-top: 0.5rem;
-  font-size: 0.75rem;
-  color: var(--color-success);
-  font-weight: 500;
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+  color: #166534;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.card-review-verified::before {
+  content: "";
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+  background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Ccircle cx='10' cy='10' r='10' fill='%2316a34a'/%3E%3Cpath d='M5.2 10.4 8.2 13.2 14.8 6.9' stroke='white' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 .card-review--real {
@@ -956,7 +1011,9 @@
 
 .showcase-band__text {
   margin: 0;
-  max-width: 36ch;
+  max-width: 40ch;
+  font-size: 1.04rem;
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.86);
 }
 
@@ -986,15 +1043,17 @@
 }
 
 .showcase-band__metric-label {
-  color: var(--color-muted);
-  font-size: 0.88rem;
+  color: #4b5563;
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
 .showcase-band__quote {
   border-left: 3px solid rgba(0, 73, 183, 0.42);
   padding-left: 0.9rem;
   color: var(--color-dark-light);
-  font-size: 0.95rem;
+  font-size: 1.03rem;
+  line-height: 1.6;
 }
 
 /* ========================================
@@ -1078,12 +1137,12 @@
 
 .contact-map__inner {
   position: relative;
-  min-height: 340px;
+  min-height: 380px;
 }
 
 .contact-map__frame {
   width: 100%;
-  height: 340px;
+  height: 380px;
   border: 0;
   filter: saturate(0.8) contrast(1.02);
 }
@@ -1116,6 +1175,13 @@
   margin: 0;
   color: var(--color-dark-light);
   font-size: 0.86rem;
+}
+
+.contact-map__address {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
 }
 
 .contact-card .btn-success,
@@ -1189,6 +1255,12 @@
   height: 18px;
 }
 
+.contact-list-item a,
+.contact-list-item [itemprop="address"] {
+  word-break: keep-all;
+  overflow-wrap: normal;
+}
+
 /* ========================================
    Trust Badges
    ======================================== */
@@ -1200,33 +1272,52 @@
 
 .trust-badge {
   background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  text-align: center;
+  border: 1px solid rgba(203, 213, 225, 0.82);
+  border-radius: 1.1rem;
+  padding: 1.25rem;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(12, 28, 62, 0.07);
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .trust-badge:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 14px 28px rgba(8, 24, 54, 0.11);
+}
+
+.trust-badge::before {
+  content: none;
 }
 
 .trust-badge__icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
+  margin: 0 0 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 73, 183, 0.1);
+  color: var(--color-primary-dark);
+  font-size: 0;
+}
+
+.trust-badge__icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .trust-badge__title {
   font-weight: 700;
   color: var(--color-dark);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
 }
 
 .trust-badge__desc {
-  color: var(--color-muted);
-  font-size: 0.875rem;
-  line-height: 1.5;
+  color: #4b5563;
+  font-size: 0.93rem;
+  line-height: 1.52;
 }
 
 /* ========================================
@@ -1453,23 +1544,24 @@
 .contact-floating-popup {
   position: absolute;
   bottom: 70px;
-  right: 0;
+  right: 50%;
   background: transparent;
   border-radius: var(--radius);
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px) scale(0.95);
+  transform: translate(50%, 10px) scale(0.95);
   transition: all var(--transition);
 }
 
 .contact-floating-popup.is-visible {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0) scale(1);
+  transform: translate(50%, 0) scale(1);
 }
 
 .contact-floating-btn {
@@ -1709,6 +1801,55 @@
   align-items: center;
   justify-content: center;
   min-height: 42px;
+}
+
+/* ========================================
+   Error Pages
+   ======================================== */
+.error-page-main {
+  min-height: calc(100svh - var(--header-height));
+  display: flex;
+  align-items: center;
+  padding: clamp(2rem, 6vw, 4rem) 0;
+}
+
+.error-page-card {
+  max-width: 760px;
+  margin: 0 auto;
+  border: 1px solid rgba(206, 219, 236, 0.96);
+  border-radius: 1.35rem;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 24px 52px rgba(12, 28, 62, 0.11);
+  padding: clamp(1.25rem, 4vw, 2.4rem);
+}
+
+.error-page-code {
+  margin: 0 0 0.5rem;
+  font-size: clamp(3rem, 11vw, 6rem);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--color-primary-dark);
+}
+
+.error-page-title {
+  margin-bottom: 0.7rem;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.error-page-text {
+  margin: 0 auto 1.25rem;
+  max-width: 42ch;
+  color: #4b5563;
+}
+
+.error-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
 }
 
 .filter-anim-item {
@@ -1957,11 +2098,8 @@
 .stat,
 .stat-card,
 .card-project,
-.card-service,
 .card-step,
-.card-advantage,
 .card-review,
-.trust-badge,
 .project-detail__specs,
 .project-detail__features {
   border-color: rgba(216, 225, 239, 0.95);
@@ -1970,18 +2108,13 @@
 
 .stat,
 .stat-card,
-.card-service,
 .card-step,
-.card-advantage,
-.card-review,
-.trust-badge {
+.card-review {
   background: rgba(255, 255, 255, 0.96);
 }
 
 .stat-icon,
-.card-service-icon,
-.card-advantage-icon,
-.trust-badge__icon {
+.stat-icon {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 1rem;
@@ -1994,16 +2127,9 @@
 }
 
 .stat-icon svg,
-.card-service-icon svg,
-.card-advantage-icon svg,
-.trust-badge__icon svg {
+.stat-icon svg {
   width: 1.55rem;
   height: 1.55rem;
-}
-
-.card-advantage-icon,
-.trust-badge__icon {
-  font-size: 0;
 }
 
 .card-advantage-title,
@@ -2046,7 +2172,8 @@
 }
 
 .card-step.card-step--final:hover {
-  transform: none;
+  transform: translateY(-4px);
+  box-shadow: 0 24px 42px rgba(0, 73, 183, 0.28) !important;
 }
 
 .card-step.card-step--final .card-step-title,
@@ -2062,7 +2189,9 @@
 }
 
 .build-section .row {
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
+  border-radius: inherit;
+  overflow: hidden;
 }
 
 .build-section {
@@ -2131,11 +2260,25 @@
 
 .build-section__form {
   width: 100%;
+  max-width: 560px;
+  margin-inline: auto;
   padding: clamp(1.1rem, 3vw, 1.75rem);
   border: 1px solid rgba(0, 73, 183, 0.1);
   border-radius: 1.4rem;
   background: #fff;
   box-shadow: 0 18px 32px rgba(13, 31, 65, 0.08);
+}
+
+.build-section__form .row {
+  --bs-gutter-x: 0.95rem;
+  --bs-gutter-y: 0.9rem;
+  margin: 0;
+}
+
+.build-section__form .form-label {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.38rem;
 }
 
 .build-section__form .form-control {
@@ -2151,6 +2294,29 @@
 
 .build-section__form .btn {
   margin-top: 0.2rem;
+}
+
+.build-section__form .form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid rgba(216, 225, 239, 0.88);
+  border-radius: 0.8rem;
+  background: rgba(248, 251, 255, 0.72);
+}
+
+.build-section__form .form-check-input {
+  position: static;
+  margin: 0;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.build-section__form .form-check-label {
+  margin: 0;
+  line-height: 1.45;
 }
 
 .check-list {
@@ -2263,8 +2429,8 @@
 
   .contact-map__inner,
   .contact-map__frame {
-    height: 300px;
-    min-height: 300px;
+    height: 360px;
+    min-height: 360px;
   }
 }
 
@@ -2284,6 +2450,33 @@
   .hero-subtitle,
   .hero__subtitle {
     font-size: 0.98rem;
+  }
+
+  body.page-home .hero .row {
+    justify-content: center;
+    text-align: center;
+  }
+
+  body.page-home .hero .row > [class*="col-"]:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body.page-home .hero-list,
+  body.page-home .hero__list {
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body.page-home .hero-list li,
+  body.page-home .hero__list li {
+    text-align: left;
+  }
+
+  body.page-home .hero .d-flex.flex-wrap.gap-2 {
+    justify-content: center;
   }
 
   .card-project,
@@ -2336,10 +2529,14 @@
     padding: 0.75rem 0.85rem;
   }
 
+  .showcase-band__metric-label {
+    font-size: 0.94rem;
+  }
+
   .contact-map__inner,
   .contact-map__frame {
-    height: 250px;
-    min-height: 250px;
+    height: 340px;
+    min-height: 340px;
   }
 
   .contact-map__overlay {
@@ -2348,6 +2545,21 @@
     bottom: 0.65rem;
     max-width: none;
     padding: 0.68rem 0.74rem;
+  }
+
+  .contact-list-item {
+    gap: 0.7rem;
+  }
+
+  .contact-list-item a.fs-5 {
+    font-size: 1.12rem !important;
+    white-space: nowrap;
+  }
+
+  .contact-list-item a[itemprop="email"],
+  .contact-list-item [itemprop="address"] {
+    font-size: 0.96rem;
+    white-space: nowrap;
   }
 
   .footer-logo img {
@@ -2366,6 +2578,19 @@
 @media (max-width: 575.98px) {
   .projects-filter .btn {
     flex: 1 1 calc(50% - 0.5rem);
+  }
+
+  .error-page-card {
+    border-radius: 1rem;
+  }
+
+  .contact-list-item a.fs-5 {
+    font-size: 1.04rem !important;
+  }
+
+  .contact-list-item a[itemprop="email"],
+  .contact-list-item [itemprop="address"] {
+    font-size: 0.9rem;
   }
 }
 
