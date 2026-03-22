@@ -1,0 +1,19 @@
+# Robots.txt for Construction Company Website
+# https://sk-opora.ru/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+
+# Sitemap location
+Sitemap: https://sk-opora.ru/sitemap.xml
+
+# Crawl delay (optional, be nice to servers)
+Crawl-delay: 1
+
+# Host (main domain)
+Host: https://sk-opora.ru

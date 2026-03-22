@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Каталог проектов домов | СК-Опора</title>
+  <meta name="description"
+    content="Каталог проектов частных домов под ключ в ДНР. Кирпичные, каркасные и газобетонные дома от 98 до 200 м². Готовые проекты с расчётной стоимостью." />
+  <meta name="keywords"
+    content="проекты домов, каталог проектов, дом из кирпича, каркасный дом, газобетонный дом, ДНР" />
+  <meta name="robots" content="index, follow" />
+  <!-- Updated theme color to brutal blue palette -->
+  <meta name="theme-color" content="#0049b7" />
+  <link rel="canonical" href="https://sk-opora.ru/projects.html" />
+
+  <!-- Favicon -->
+  <!-- Updated favicon to brutal blue -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Crect width='64' height='64' rx='18' fill='%2317212b'/%3E%3Cpath d='M14 31.5 32 16l18 15.5V48a2 2 0 0 1-2 2H16a2 2 0 0 1-2-2V31.5Z' fill='%230049b7'/%3E%3Cpath d='M24 50V35h16v15' stroke='white' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Каталог проектов домов",
+    "description": "Готовые проекты частных домов под ключ в ДНР",
+    "numberOfItems": 8,
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "url": "https://sk-opora.ru/project-detail.html?id=sever"},
+      {"@type": "ListItem", "position": 2, "url": "https://sk-opora.ru/project-detail.html?id=alpha"}
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-projects" itemscope itemtype="https://schema.org/WebPage">
+  <a href="#main-content" class="skip-link visually-hidden-focusable">Перейти к основному содержимому</a>
+
+  <header class="header" role="banner">
+    <nav class="navbar navbar-expand-lg" aria-label="Основная навигация">
+      <div class="container">
+        <a class="navbar-brand header-logo" href="index.html" aria-label="СК-Опора - На главную">
+          <img src="images/logo-1.webp" alt="СК-Опора" width="70" height="70" loading="eager" fetchpriority="high" decoding="async">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Открыть меню">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto header-menu" role="menubar">
+            <li class="nav-item" role="none"><a class="nav-link" href="index.html#about" role="menuitem">О компании</a>
+            </li>
+            <li class="nav-item" role="none"><a class="nav-link active" href="projects.html" role="menuitem"
+                aria-current="page">Проекты</a></li>
+            <li class="nav-item" role="none"><a class="nav-link" href="index.html#services" role="menuitem">Услуги</a>
+            </li>
+            <li class="nav-item" role="none"><a class="nav-link" href="index.html#portfolio"
+                role="menuitem">Портфолио</a></li>
+            <li class="nav-item" role="none"><a class="nav-link" href="index.html#contacts" role="menuitem">Контакты</a>
+            </li>
+          </ul>
+          <div class="header-contacts d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+            <address class="mb-0">
+              <a class="header-phone" href="tel:+70000000000" aria-label="Позвонить нам">
+                +7 (949) 123-45-67
+              </a>
+            </address>
+            <a class="btn btn-primary btn-sm" href="index.html#callback">Заказать звонок</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    <!-- Hero -->
+    <section class="projects-page__hero">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Проекты домов</li>
+          </ol>
+        </nav>
+        <h1 class="projects-page__title">Каталог проектов домов</h1>
+        <p class="text-muted">Готовые проекты с проверенными планировками и расчётной стоимостью строительства</p>
+      </div>
+    </section>
+
+    <!-- Projects Catalog -->
+    <section class="section py-5">
+      <div class="container">
+        <!-- Filter -->
+        <div class="projects-filter justify-content-center" role="group" aria-label="Фильтр проектов">
+          <button class="btn btn-primary active js-filter" data-filter="all">Все проекты</button>
+          <button class="btn btn-outline-primary js-filter" data-filter="brick">Кирпичные</button>
+          <button class="btn btn-outline-primary js-filter" data-filter="frame">Каркасные</button>
+          <button class="btn btn-outline-primary js-filter" data-filter="aerated">Газобетонные</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid mt-4" role="list" aria-label="Список проектов">
+          <!-- Проект 1 - Север -->
+          <article class="card-project card h-100" data-type="brick" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/sever-1.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Север">
+              <span class="card-project-badge">Популярный</span>
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Север»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">118 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">1</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Кирпич</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="2990000">2 990 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=sever"
+                aria-label="Подробнее о проекте Север">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 2 - Альфа -->
+          <article class="card-project card h-100" data-type="aerated" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/alpha-1.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Альфа">
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Альфа»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">132 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">2</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Газобетон</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="3600000">3 600 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=alpha">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 3 - Лофт -->
+          <article class="card-project card h-100" data-type="brick" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/loft-1.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Лофт">
+              <span class="card-project-badge card-project-badge--new">Новинка</span>
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Лофт»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">145 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">2</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Кирпич</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="4100000">4 100 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=loft">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 4 - Вега -->
+          <article class="card-project card h-100" data-type="frame" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/vega-1.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Вега">
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Вега»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">98 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">1</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Каркас</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="2700000">2 700 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=vega">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 5 - Терра -->
+          <article class="card-project card h-100" data-type="brick" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/brick-2.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Терра">
+              <span class="card-project-badge">Популярный</span>
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Терра»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">175 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">2</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Кирпич</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="4800000">4 800 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=terra">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 6 - Арктик -->
+          <article class="card-project card h-100" data-type="frame" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/karkas-1.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Арктик">
+              <span class="card-project-badge card-project-badge--new">Новинка</span>
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Арктик»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">95 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">1</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Каркас</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="2550000">2 550 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=arctic">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 7 - Солярис -->
+          <article class="card-project card h-100" data-type="aerated" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/aerated-2.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Солярис">
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Солярис»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">148 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">2</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Газобетон</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="3950000">3 950 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=solaris">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 8 - Эко -->
+          <article class="card-project card h-100" data-type="frame" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/karkas-2.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Эко">
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Эко»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">88 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">1</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Каркас</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="2400000">2 400 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=eco">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 9 - Барнхаус -->
+          <article class="card-project card h-100" data-type="frame" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/brick-3.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Барнхаус">
+              <span class="card-project-badge card-project-badge--new">Новинка</span>
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Барнхаус»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">120 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">2</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Каркас</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="3200000">3 200 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=barnhouse">Подробнее</a>
+            </div>
+          </article>
+
+          <!-- Проект 10 - Кантри -->
+          <article class="card-project card h-100" data-type="brick" role="listitem" itemscope
+            itemtype="https://schema.org/House">
+            <div class="card-project-img"
+              style="background-image: url('images/brick-1.jpg'); background-size: cover; background-position: center;"
+              role="img" aria-label="Проект дома Кантри">
+            </div>
+            <div class="card-body">
+              <h2 class="h6 mb-2" itemprop="name">Проект «Кантри»</h2>
+              <dl class="row mb-2 small">
+                <dt class="col-6 text-muted fw-normal">Площадь:</dt>
+                <dd class="col-6 text-end" itemprop="floorSize">155 м²</dd>
+                <dt class="col-6 text-muted fw-normal">Этажей:</dt>
+                <dd class="col-6 text-end">2</dd>
+                <dt class="col-6 text-muted fw-normal">Материал:</dt>
+                <dd class="col-6 text-end">Кирпич</dd>
+              </dl>
+              <p class="fw-bold text-primary fs-5 mb-3" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                от <span itemprop="price" content="4300000">4 300 000</span> <span itemprop="priceCurrency"
+                  content="RUB">₽</span>
+              </p>
+              <a class="btn btn-primary w-100" href="project-detail.html?id=country">Подробнее</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-5">
+          <p class="text-muted mb-3">Не нашли подходящий проект? Мы разработаем индивидуальный!</p>
+          <a href="index.html#contacts" class="btn btn-outline-primary btn-lg">Заказать индивидуальный проект</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer py-5" role="contentinfo">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo"><img src="images/logo-2.webp" alt="СК-Опора" width="92" height="52" loading="lazy" decoding="async"><span>СК-Опора</span></a>
+            <p class="text-white-50 small mt-2">Строительство частных домов под ключ в ДНР. Качество, сроки, гарантия.
+            </p>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="h6 text-white mb-3">Навигация</h4>
+          <ul class="list-unstyled site-footer__nav">
+            <li><a href="index.html#about">О компании</a></li>
+            <li><a href="projects.html">Проекты</a></li>
+            <li><a href="index.html#services">Услуги</a></li>
+            <li><a href="portfolio.html">Портфолио</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4 class="h6 text-white mb-3">Информация</h4>
+          <ul class="list-unstyled site-footer__nav">
+            <li><a href="index.html#reviews">Отзывы</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="index.html#contacts">Контакты</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h4 class="h6 text-white mb-3">Контакты</h4>
+          <ul class="list-unstyled text-white-50 small">
+            <li class="mb-2 d-flex align-items-center gap-2">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z" />
+              </svg>
+              <a href="tel:+70000000000" class="text-white-50">+7 (000) 000-00-00</a>
+            </li>
+            <li class="mb-2 d-flex align-items-center gap-2">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.758 2.855L15 11.114v-5.73Zm-.034 6.878L9.203 8.165 8 8.919l-1.203-.754L1.034 12.26A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739ZM1 11.114l4.758-2.876L1 5.383v5.73Z" />
+              </svg>
+              <a href="mailto:info@sk-opora.ru" class="text-white-50">info@sk-opora.ru</a>
+            </li>
+            <li class="mb-2 d-flex align-items-center gap-2">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+              </svg>
+              <span>[Адрес офиса]</span>
+            </li>
+          </ul>
+          <div class="d-flex gap-2 mt-3">
+            <a href="https://wa.me/79491234567" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+              </svg>
+              WhatsApp
+            </a>
+            <a href="https://t.me/sk_opora" class="btn btn-sm btn-outline-light d-flex align-items-center gap-1" aria-label="Telegram" target="_blank" rel="noopener">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.452-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.094.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
+              </svg>
+              Telegram
+            </a>
+            <button class="btn btn-sm btn-outline-light d-flex align-items-center gap-1" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Вернуться наверх">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 4l-7 7h4v5h6v-5h4l-7-7z" />
+              </svg>
+              Наверх
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4 bg-secondary">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+        <small class="text-white-50">© 2026 СК-Опора. Все права защищены.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Success Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="formSuccessToast" class="toast align-items-center text-bg-success border-0" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <strong>✓ Заявка отправлена!</strong><br>
+          Мы свяжемся с вами в ближайшее время.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+    <div id="formErrorToast" class="toast align-items-center text-bg-danger border-0" role="alert" aria-live="assertive"
+      aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <strong>✗ Ошибка!</strong><br>
+          <span>Произошла ошибка. Попробуйте позже.</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+          aria-label="Закрыть"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div class="modal fade" id="cookieSettingsModal" tabindex="-1" aria-labelledby="cookieSettingsTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="cookieSettingsTitle">Настройки cookie</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">
+            Вы можете выбрать, какие типы cookie разрешить. Необходимые cookie всегда активны для корректной работы
+            сайта.
+          </p>
+
+          <div class="cookie-setting mb-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 class="h6 mb-1">Необходимые cookie</h3>
+                <p class="small text-muted mb-0">Обеспечивают базовую функциональность сайта. Отключить нельзя.</p>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cookieNecessary" checked disabled>
+                <label class="form-check-label visually-hidden" for="cookieNecessary">Включено</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="cookie-setting mb-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 class="h6 mb-1">Функциональные cookie</h3>
+                <p class="small text-muted mb-0">Запоминают ваши предпочтения и настройки для удобства использования.
+                </p>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cookieFunctional">
+                <label class="form-check-label visually-hidden" for="cookieFunctional">Включить</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="cookie-setting mb-3">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 class="h6 mb-1">Аналитические cookie</h3>
+                <p class="small text-muted mb-0">Помогают понять, как посетители используют сайт, для его улучшения.</p>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cookieAnalytics">
+                <label class="form-check-label visually-hidden" for="cookieAnalytics">Включить</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="cookie-setting">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <h3 class="h6 mb-1">Маркетинговые cookie</h3>
+                <p class="small text-muted mb-0">Используются для показа релевантной рекламы на других сайтах.</p>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cookieMarketing">
+                <label class="form-check-label visually-hidden" for="cookieMarketing">Включить</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="button" class="btn btn-primary" id="cookieSaveSettings">Сохранить настройки</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
+  <!-- Slick Carousel -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  
+  <!-- TouchSwipe -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+  
+  <!-- FancyBox -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  
+  <!-- Custom libraries -->
+  <script src="js/libs.js"></script>
+  <script src="js/site-config.js"></script>
+  <script src="js/main.js?v=6"></script>
+
+  <!-- Floating contact button with popup -->
+  <div class="contact-floating">
+    <button class="contact-floating-main" aria-label="Связаться с нами" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+      </svg>
+      <span class="contact-floating-ripple"></span>
+    </button>
+    <div class="contact-floating-popup">
+      <a href="https://t.me/sk_opora" class="contact-floating-btn contact-floating-btn--telegram"
+         target="_blank" rel="noopener" aria-label="Написать в Telegram">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/79491234567" class="contact-floating-btn contact-floating-btn--whatsapp"
+         target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      </a>
+      <a href="tel:+79491234567" class="contact-floating-btn contact-floating-btn--phone" aria-label="Позвонить">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>
